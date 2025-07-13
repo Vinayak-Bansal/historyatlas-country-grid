@@ -61,7 +61,23 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				/* Custom HistoryAtlas colors */
+				'vintage-gold': 'hsl(var(--vintage-gold))',
+				'map-blue': 'hsl(var(--map-blue))',
+				'parchment': 'hsl(var(--parchment))',
+				'earth-brown': 'hsl(var(--earth-brown))'
+			},
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-card': 'var(--gradient-card)'
+			},
+			boxShadow: {
+				'vintage': 'var(--shadow-vintage)',
+				'card-hover': 'var(--shadow-card)'
+			},
+			transitionTimingFunction: {
+				'smooth': 'var(--transition-smooth)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
