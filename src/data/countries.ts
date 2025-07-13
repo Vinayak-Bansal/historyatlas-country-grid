@@ -44,6 +44,7 @@ export const countries: Country[] = [
   { name: "Colombia", code: "CO", flag: "https://flagpedia.net/data/flags/w580/co.webp" },
   { name: "Comoros", code: "KM", flag: "https://flagpedia.net/data/flags/w580/km.webp" },
   { name: "Congo", code: "CG", flag: "https://flagpedia.net/data/flags/w580/cg.webp" },
+  { name: "Democratic Republic of the Congo", code: "CD", flag: "https://flagpedia.net/data/flags/w580/cd.webp" },
   { name: "Costa Rica", code: "CR", flag: "https://flagpedia.net/data/flags/w580/cr.webp" },
   { name: "Croatia", code: "HR", flag: "https://flagpedia.net/data/flags/w580/hr.webp" },
   { name: "Cuba", code: "CU", flag: "https://flagpedia.net/data/flags/w580/cu.webp" },
