@@ -77,13 +77,13 @@ const CountryDetail = () => {
               <CardHeader>
                 <CardTitle className="flex items-center space-x-2">
                   <Globe className="h-5 w-5" />
-                  <span>Historical Overview</span>
+                  <span>A Complete History of {country.name}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  Explore the complete historical narrative of {country.name}, including major events, 
-                  developments, and turning points that shaped the nation.
+                  Trace the development of {country.name} through time, wars, revolutions, alliances, and reforms—through 
+                  visual timelines, detailed narratives, dynamic graphs, and interactive maps
                 </p>
               </CardContent>
             </Card>

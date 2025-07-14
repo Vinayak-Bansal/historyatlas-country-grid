@@ -132,3 +132,8 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+.Hello {
+  font-size: 50px;
+  text-align: center;
+  font-weight: bold;
+}

@@ -91,19 +91,29 @@ const CountryOverview = () => {
         {/* Overview Content */}
         <Card className="border-2">
           <CardHeader>
-            <CardTitle>Historical Overview - {country.name}</CardTitle>
+            <CardTitle className = "Hello">A Complete History of {country.name}</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground mb-4">
-              This is the historical overview page for {country.name}. You can add detailed information about:
-            </p>
-            <ul className="list-disc list-inside text-muted-foreground space-y-2">
-              <li>Major historical events and milestones</li>
-              <li>Significant developments in the country's history</li>
-              <li>Ancient civilizations and early settlements</li>
-              <li>Colonial period and independence movements</li>
-              <li>Modern political and social developments</li>
-            </ul>
+            {country.historicalOverview && country.historicalOverview.length > 0 ? (
+              <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                {country.historicalOverview.map((point, index) => (
+                  <li key={index}>{point}</li>
+                ))}
+              </ul>
+            ) : (
+              <div>
+                <p className="text-muted-foreground mb-4">
+                  This is the historical overview page for {country.name}. You can add detailed information about:
+                </p>
+                <ul className="list-disc list-inside text-muted-foreground space-y-2">
+                  <li>Major historical events and milestones</li>
+                  <li>Significant developments in the country's history</li>
+                  <li>Ancient civilizations and early settlements</li>
+                  <li>Colonial period and independence movements</li>
+                  <li>Modern political and social developments</li>
+                </ul>
+              </div>
+            )}
           </CardContent>
         </Card>
       </div>

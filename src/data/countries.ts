@@ -2,11 +2,12 @@ export interface Country {
   name: string;
   code: string;
   flag: string;
+  historicalOverview?: string[]; 
 }
 
 // Comprehensive list of world countries with flag URLs from flagpedia.net
 export const countries: Country[] = [
-  { name: "Afghanistan", code: "AF", flag: "https://flagpedia.net/data/flags/w580/af.webp" },
+  { name: "Afghanistan", code: "AF", flag: "https://flagpedia.net/data/flags/w580/af.webp", },
   { name: "Albania", code: "AL", flag: "https://flagpedia.net/data/flags/w580/al.webp" },
   { name: "Algeria", code: "DZ", flag: "https://flagpedia.net/data/flags/w580/dz.webp" },
   { name: "Andorra", code: "AD", flag: "https://flagpedia.net/data/flags/w580/ad.webp" },
@@ -16,7 +17,7 @@ export const countries: Country[] = [
   { name: "Australia", code: "AU", flag: "https://flagpedia.net/data/flags/w580/au.webp" },
   { name: "Austria", code: "AT", flag: "https://flagpedia.net/data/flags/w580/at.webp" },
   { name: "Azerbaijan", code: "AZ", flag: "https://flagpedia.net/data/flags/w580/az.webp" },
-  { name: "Bahamas", code: "BS", flag: "https://flagpedia.net/data/flags/w580/bs.webp" },
+  { name: "Bahamas", code: "BS", flag: "https://flagpedia.net/data/flags/w580/bs.webp", historicalOverview: "This is the historical overview for the Bahamas." },
   { name: "Bahrain", code: "BH", flag: "https://flagpedia.net/data/flags/w580/bh.webp" },
   { name: "Bangladesh", code: "BD", flag: "https://flagpedia.net/data/flags/w580/bd.webp" },
   { name: "Barbados", code: "BB", flag: "https://flagpedia.net/data/flags/w580/bb.webp" },
@@ -123,7 +124,17 @@ export const countries: Country[] = [
   { name: "Mozambique", code: "MZ", flag: "https://flagpedia.net/data/flags/w580/mz.webp" },
   { name: "Myanmar", code: "MM", flag: "https://flagpedia.net/data/flags/w580/mm.webp" },
   { name: "Namibia", code: "NA", flag: "https://flagpedia.net/data/flags/w580/na.webp" },
-  { name: "Nauru", code: "NR", flag: "https://flagpedia.net/data/flags/w580/nr.webp" },
+  { name: "Nauru", code: "NR", flag: "https://flagpedia.net/data/flags/w580/nr.webp", historicalOverview: [
+      "Initially settled by Micronesian and Polynesian people around 3,000 years ago.",
+      "First European contact was in 1798 by British sea captain John Fearn, who named it 'Pleasant Island'.",
+      "Germany annexed the island in 1888.",
+      "Phosphate was discovered in 1900, leading to extensive mining operations.",
+      "After World War I, Nauru became a League of Nations mandate administered by Australia, New Zealand, and the United Kingdom.",
+      "Occupied by Japan during World War II.",
+      "Gained independence on January 31, 1968.",
+      "For a period, revenues from phosphate mining gave Nauruans one of the highest per-capita incomes in the world.",
+      "The country faced economic decline as phosphate resources were depleted."
+    ]},
   { name: "Nepal", code: "NP", flag: "https://flagpedia.net/data/flags/w580/np.webp" },
   { name: "Netherlands", code: "NL", flag: "https://flagpedia.net/data/flags/w580/nl.webp" },
   { name: "New Zealand", code: "NZ", flag: "https://flagpedia.net/data/flags/w580/nz.webp" },
