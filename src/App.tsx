@@ -5,6 +5,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import CountryDetail from "./pages/CountryDetail";
+import CountryOverview from "./pages/CountryOverview";
+import CountryPeriods from "./pages/CountryPeriods";
+import CountryFigures from "./pages/CountryFigures";
+import CountryHeritage from "./pages/CountryHeritage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -18,6 +22,10 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/country/:countryName" element={<CountryDetail />} />
+          <Route path="/country/:countryName/overview" element={<CountryOverview />} />
+          <Route path="/country/:countryName/periods" element={<CountryPeriods />} />
+          <Route path="/country/:countryName/figures" element={<CountryFigures />} />
+          <Route path="/country/:countryName/heritage" element={<CountryHeritage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

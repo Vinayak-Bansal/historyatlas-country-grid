@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Globe } from "lucide-react";
+import { ArrowLeft, Globe, Clock, Users, Building } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { countries } from "@/data/countries";
@@ -70,59 +70,75 @@ const CountryDetail = () => {
           </Card>
         </div>
 
-        {/* Historical Information Placeholder */}
+        {/* Navigation Cards */}
         <div className="grid gap-6 md:grid-cols-2">
-          <Card className="border-2 hover:border-accent transition-colors">
-            <CardHeader>
-              <CardTitle className="flex items-center space-x-2">
-                <Globe className="h-5 w-5" />
-                <span>Historical Overview</span>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Historical information for {country.name} will be displayed here. 
-                This section will include major historical events, periods, and 
-                significant developments in the country's history.
-              </p>
-            </CardContent>
-          </Card>
+          <Link to={`/country/${countryName}/overview`}>
+            <Card className="border-2 hover:border-accent transition-all duration-300 hover:scale-105 cursor-pointer">
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <Globe className="h-5 w-5" />
+                  <span>Historical Overview</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Explore the complete historical narrative of {country.name}, including major events, 
+                  developments, and turning points that shaped the nation.
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
 
-          <Card className="border-2 hover:border-accent transition-colors">
-            <CardHeader>
-              <CardTitle>Key Historical Periods</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Timeline of important historical periods and eras for {country.name} 
-                will be shown here, including dates and brief descriptions of each period.
-              </p>
-            </CardContent>
-          </Card>
+          <Link to={`/country/${countryName}/periods`}>
+            <Card className="border-2 hover:border-accent transition-all duration-300 hover:scale-105 cursor-pointer">
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <Clock className="h-5 w-5" />
+                  <span>Key Historical Periods</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Discover the timeline of important historical periods and eras that 
+                  defined {country.name}'s journey through time.
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
 
-          <Card className="border-2 hover:border-accent transition-colors">
-            <CardHeader>
-              <CardTitle>Notable Historical Figures</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Information about important historical figures from {country.name} 
-                including rulers, leaders, scholars, and other significant personalities.
-              </p>
-            </CardContent>
-          </Card>
+          <Link to={`/country/${countryName}/figures`}>
+            <Card className="border-2 hover:border-accent transition-all duration-300 hover:scale-105 cursor-pointer">
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <Users className="h-5 w-5" />
+                  <span>Notable Historical Figures</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Learn about the remarkable people who influenced {country.name}'s history, 
+                  from rulers and leaders to scholars and cultural icons.
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
 
-          <Card className="border-2 hover:border-accent transition-colors">
-            <CardHeader>
-              <CardTitle>Cultural Heritage</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                Details about {country.name}'s cultural heritage, traditions, 
-                historical artifacts, and UNESCO World Heritage sites.
-              </p>
-            </CardContent>
-          </Card>
+          <Link to={`/country/${countryName}/heritage`}>
+            <Card className="border-2 hover:border-accent transition-all duration-300 hover:scale-105 cursor-pointer">
+              <CardHeader>
+                <CardTitle className="flex items-center space-x-2">
+                  <Building className="h-5 w-5" />
+                  <span>Cultural Heritage</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Explore {country.name}'s rich cultural heritage, UNESCO sites, 
+                  traditions, and historical monuments.
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
         </div>
       </div>
     </div>
