@@ -66,11 +66,17 @@ export default {
 				'vintage-gold': 'hsl(var(--vintage-gold))',
 				'map-blue': 'hsl(var(--map-blue))',
 				'parchment': 'hsl(var(--parchment))',
-				'earth-brown': 'hsl(var(--earth-brown))'
+				'earth-brown': 'hsl(var(--earth-brown))',
+				/* Modern sleek colors */
+				'modern-purple': 'hsl(var(--modern-purple))',
+				'modern-cyan': 'hsl(var(--modern-cyan))',
+				'modern-emerald': 'hsl(var(--modern-emerald))'
 			},
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)',
-				'gradient-card': 'var(--gradient-card)'
+				'gradient-card': 'var(--gradient-card)',
+				'gradient-modern': 'var(--gradient-modern)',
+				'gradient-sleek': 'var(--gradient-sleek)'
 			},
 			boxShadow: {
 				'vintage': 'var(--shadow-vintage)',
