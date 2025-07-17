@@ -89,9 +89,9 @@ const CountryOverview = () => {
         </div>
 
         {/* Overview Content */}
-        <Card className="border-2">
+        <Card className="border-2 min-h-[60vh] transition-all duration-300">
           <CardHeader>
-            <CardTitle className = "Hello">A Complete History of {country.name}</CardTitle>
+            <CardTitle>A Complete History of {country.name}</CardTitle>
           </CardHeader>
           <CardContent>
             {country.historicalOverview && country.historicalOverview.length > 0 ? (

@@ -89,7 +89,7 @@ const CountryHeritage = () => {
         </div>
 
         {/* Cultural Heritage Content */}
-        <Card className="border-2">
+        <Card className="border-2 min-h-[60vh] transition-all duration-300">
           <CardHeader>
             <CardTitle>Cultural Heritage - {country.name}</CardTitle>
           </CardHeader>

@@ -89,7 +89,7 @@ const CountryPeriods = () => {
         </div>
 
         {/* Historical Periods Content */}
-        <Card className="border-2">
+        <Card className="border-2 min-h-[60vh] transition-all duration-300">
           <CardHeader>
             <CardTitle>Key Historical Periods - {country.name}</CardTitle>
           </CardHeader>

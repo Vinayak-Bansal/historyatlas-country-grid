@@ -17,7 +17,7 @@ export const countries: Country[] = [
   { name: "Australia", code: "AU", flag: "https://flagpedia.net/data/flags/w580/au.webp" },
   { name: "Austria", code: "AT", flag: "https://flagpedia.net/data/flags/w580/at.webp" },
   { name: "Azerbaijan", code: "AZ", flag: "https://flagpedia.net/data/flags/w580/az.webp" },
-  { name: "Bahamas", code: "BS", flag: "https://flagpedia.net/data/flags/w580/bs.webp", historicalOverview: "This is the historical overview for the Bahamas." },
+  { name: "Bahamas", code: "BS", flag: "https://flagpedia.net/data/flags/w580/bs.webp", historicalOverview: ["This is the historical overview for the Bahamas."] },
   { name: "Bahrain", code: "BH", flag: "https://flagpedia.net/data/flags/w580/bh.webp" },
   { name: "Bangladesh", code: "BD", flag: "https://flagpedia.net/data/flags/w580/bd.webp" },
   { name: "Barbados", code: "BB", flag: "https://flagpedia.net/data/flags/w580/bb.webp" },

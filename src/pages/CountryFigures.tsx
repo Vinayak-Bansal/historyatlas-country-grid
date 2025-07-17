@@ -89,7 +89,7 @@ const CountryFigures = () => {
         </div>
 
         {/* Notable Figures Content */}
-        <Card className="border-2">
+        <Card className="border-2 min-h-[60vh] transition-all duration-300">
           <CardHeader>
             <CardTitle>Notable Historical Figures - {country.name}</CardTitle>
           </CardHeader>
