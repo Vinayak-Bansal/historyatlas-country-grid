@@ -70,14 +70,30 @@ export default {
 				/* Modern sleek colors */
 				'modern-purple': 'hsl(var(--modern-purple))',
 				'modern-cyan': 'hsl(var(--modern-cyan))',
-				'modern-emerald': 'hsl(var(--modern-emerald))'
+				'modern-emerald': 'hsl(var(--modern-emerald))',
+        
+        // Country Detail Page Colors
+        "hero-bg": "hsl(var(--hero-bg))",
+        "hero-bg-end": "hsl(var(--hero-bg-end))",
+        "stats-bg": "hsl(var(--stats-bg))",
+        "timeline-bg": "hsl(var(--timeline-bg))",
+        "text-primary": "hsl(var(--text-primary))",
+        "chart-blue": "hsl(var(--chart-blue))",
+        "chart-green": "hsl(var(--chart-green))",
+        "chart-gray": "hsl(var(--chart-gray))"
 			},
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-card': 'var(--gradient-card)',
 				'gradient-modern': 'var(--gradient-modern)',
-				'gradient-sleek': 'var(--gradient-sleek)'
+				'gradient-sleek': 'var(--gradient-sleek)',
+        "gradient-country-hero": "linear-gradient(135deg, hsl(var(--hero-bg)), hsl(var(--hero-bg-end)))"
 			},
+      fontFamily: {
+        sans: ["Inter", "sans-serif"],
+        heading: ["Montserrat", "Inter", "sans-serif"],
+        body: ["Open Sans", "Roboto", "sans-serif"],
+      },
 			boxShadow: {
 				'vintage': 'var(--shadow-vintage)',
 				'card-hover': 'var(--shadow-card)'

@@ -1,9 +1,16 @@
 import { Link, useLocation } from "react-router-dom";
-import { Globe, Search } from "lucide-react";
+import { Globe, Search, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import { useTheme } from "next-themes";
 
 const Navigation = () => {
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
+  
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
   
   const navItems = [
     { name: "Home", path: "/" },
@@ -42,17 +49,30 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Search Button */}
-          <Link to="/search">
-            <Button
-              variant={isActive("/search") ? "default" : "outline"}
-              size="sm"
-              className="flex items-center space-x-2"
-            >
-              <Search className="h-4 w-4" />
-              <span className="hidden sm:inline">Search</span>
-            </Button>
-          </Link>
+          {/* Dark Mode Toggle and Search */}
+          <div className="flex items-center space-x-4">
+            {/* Dark Mode Toggle */}
+            <div className="flex items-center space-x-2">
+              <Sun className="h-4 w-4" />
+              <Switch
+                checked={theme === "dark"}
+                onCheckedChange={toggleTheme}
+              />
+              <Moon className="h-4 w-4" />
+            </div>
+            
+            {/* Search Button */}
+            <Link to="/search">
+              <Button
+                variant={isActive("/search") ? "default" : "outline"}
+                size="sm"
+                className="flex items-center space-x-2"
+              >
+                <Search className="h-4 w-4" />
+                <span className="hidden sm:inline">Search</span>
+              </Button>
+            </Link>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

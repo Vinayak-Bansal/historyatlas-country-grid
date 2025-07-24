@@ -47,6 +47,16 @@ All colors MUST be HSL.
     --parchment: 42 25% 88%;
     --earth-brown: 25 30% 35%;
     
+    /* Country Detail Page Colors */
+    --hero-bg: 249 250 251;
+    --hero-bg-end: 229 231 235;
+    --stats-bg: 255 255 255;
+    --timeline-bg: 243 244 246;
+    --text-primary: 17 24 39;
+    --chart-blue: 59 130 246;
+    --chart-green: 16 185 129;
+    --chart-gray: 107 114 128;
+    
     /* Modern sleek colors */
     --modern-purple: 260 84% 60%;
     --modern-cyan: 195 85% 60%;
@@ -120,6 +130,16 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    /* Dark Mode Country Detail Colors */
+    --hero-bg: 17 24 39;
+    --hero-bg-end: 31 41 55;
+    --stats-bg: 31 41 55;
+    --timeline-bg: 55 65 81;
+    --text-primary: 249 250 251;
+    --chart-blue: 96 165 250;
+    --chart-green: 52 211 153;
+    --chart-gray: 156 163 175;
   }
 }
 
