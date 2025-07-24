@@ -94,6 +94,12 @@ export default {
         heading: ["Montserrat", "Inter", "sans-serif"],
         body: ["Open Sans", "Roboto", "sans-serif"],
       },
+      fontSize: {
+        'heading-lg': ['2rem', { lineHeight: '1.5', fontWeight: '700' }], // 32px
+        'heading-md': ['1.75rem', { lineHeight: '1.5', fontWeight: '700' }], // 28px  
+        'heading-sm': ['1.5rem', { lineHeight: '1.5', fontWeight: '600' }], // 24px
+        'body': ['1rem', { lineHeight: '1.5', fontWeight: '400' }], // 16px
+      },
 			boxShadow: {
 				'vintage': 'var(--shadow-vintage)',
 				'card-hover': 'var(--shadow-card)'

@@ -131,6 +131,38 @@ const CountryDetail = () => {
           <CountryTimeline country={country} />
         </div>
 
+        {/* Did You Know Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
+          className="mb-8"
+        >
+          <Card className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border-2 border-blue-200 dark:border-blue-800 shadow-lg">
+            <CardContent className="p-6">
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-12 h-12 bg-blue-500 dark:bg-blue-400 rounded-full flex items-center justify-center">
+                    <span className="text-white text-xl font-bold">?</span>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-xl font-heading font-bold text-gray-900 dark:text-gray-100 mb-3">
+                    Did You Know?
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-300 font-body leading-relaxed">
+                    {country.name === "France" && "France has more time zones than any other country in the world, with 12 different time zones spanning from mainland France to its overseas territories."}
+                    {country.name === "Germany" && "Germany has over 1,500 breweries and produces more than 5,000 different types of beer, making it one of the world's largest beer producers."}
+                    {country.name === "Japan" && "Japan consists of 6,852 islands, though only about 430 are inhabited. The four largest islands make up 97% of the country's total land area."}
+                    {country.name === "United Kingdom" && "The United Kingdom has no official national anthem by law, though 'God Save the King/Queen' is traditionally used as the de facto national anthem."}
+                    {!["France", "Germany", "Japan", "United Kingdom"].includes(country.name) && `${country.name} has a rich history and fascinating cultural heritage that continues to influence the world today.`}
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
         {/* Charts Section */}
         <div className="mb-8">
           <CountryCharts country={country} />
