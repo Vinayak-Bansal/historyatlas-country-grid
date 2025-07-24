@@ -8,7 +8,7 @@ interface CountryChartsProps {
     code: string;
   };
 }
-
+###Hellowhats up broski
 const CountryCharts = ({ country }: CountryChartsProps) => {
   // Sample chart data - in a real app this would come from an API
   const getChartData = (countryName: string) => {
