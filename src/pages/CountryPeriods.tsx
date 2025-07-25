@@ -1,10 +1,8 @@
-import { useParams, Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useParams } from "react-router-dom";
+import { Clock, Crown, Sword, Globe, Calendar } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { countries } from "@/data/countries";
-import Navigation from "@/components/Navigation";
+import CountrySubtabLayout from "@/components/CountrySubtabLayout";
 
 const CountryPeriods = () => {
   const { countryName } = useParams();
@@ -13,102 +11,135 @@ const CountryPeriods = () => {
     c => c.name.toLowerCase().replace(/\s+/g, '-') === countryName
   );
 
-  if (!country) {
-    return (
-      <div className="min-h-screen bg-background">
-        <Navigation />
-        <div className="container mx-auto px-4 py-8">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">Country Not Found</h1>
-            <Link to="/">
-              <Button>
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const title = `Historical Periods of ${country?.name || 'Country'}`;
+  const subtitle = `Journey through the defining eras and transformative periods that shaped ${country?.name || 'this nation'}. From ancient civilizations to the modern age, explore the timeline of political, cultural, and social evolution.`;
+
+  const periods = [
+    {
+      title: "Ancient Period",
+      icon: <Clock className="w-5 h-5 text-vintage-gold" />,
+      description: "Early civilizations, tribal societies, and the foundations of culture",
+      timeframe: "Pre-1000 CE"
+    },
+    {
+      title: "Medieval Era", 
+      icon: <Crown className="w-5 h-5 text-vintage-gold" />,
+      description: "Formation of kingdoms, feudalism, and religious developments",
+      timeframe: "1000-1500 CE"
+    },
+    {
+      title: "Colonial Period",
+      icon: <Globe className="w-5 h-5 text-vintage-gold" />,
+      description: "European influence, trade expansion, and imperial control",
+      timeframe: "1500-1800 CE"
+    },
+    {
+      title: "Independence Era",
+      icon: <Sword className="w-5 h-5 text-vintage-gold" />,
+      description: "Revolutionary movements, nation-building, and sovereignty",
+      timeframe: "1800-1950 CE"
+    },
+    {
+      title: "Modern Period",
+      icon: <Calendar className="w-5 h-5 text-vintage-gold" />,
+      description: "Contemporary developments, globalization, and current affairs",
+      timeframe: "1950-Present"
+    }
+  ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      
-      <div className="container mx-auto px-4 py-8">
-        {/* Back Button */}
-        <div className="mb-6">
-          <Link to="/">
-            <Button variant="outline" className="mb-4">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Countries
-            </Button>
-          </Link>
-        </div>
-
-        {/* Country Header */}
-        <div className="mb-8">
-          <Card className="bg-gradient-card border-2">
-            <CardHeader>
-              <div className="flex items-center space-x-4">
-                <img
-                  src={country.flag}
-                  alt={`${country.name} flag`}
-                  className="w-24 h-16 object-cover rounded-lg shadow-vintage"
-                />
-                <div>
-                  <CardTitle className="text-3xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-                    {country.name}
-                  </CardTitle>
-                  <p className="text-muted-foreground">Country Code: {country.code}</p>
-                </div>
-              </div>
-            </CardHeader>
-          </Card>
-        </div>
-
-        {/* Navigation Tabs */}
-        <div className="mb-8">
-          <Tabs value="periods" className="w-full">
-            <TabsList className="grid w-full grid-cols-4">
-              <TabsTrigger value="overview" asChild>
-                <Link to={`/country/${countryName}/overview`}>Overview</Link>
-              </TabsTrigger>
-              <TabsTrigger value="periods" asChild>
-                <Link to={`/country/${countryName}/periods`}>Historical Periods</Link>
-              </TabsTrigger>
-              <TabsTrigger value="figures" asChild>
-                <Link to={`/country/${countryName}/figures`}>Notable Figures</Link>
-              </TabsTrigger>
-              <TabsTrigger value="heritage" asChild>
-                <Link to={`/country/${countryName}/heritage`}>Cultural Heritage</Link>
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
-        </div>
-
-        {/* Historical Periods Content */}
-        <Card className="border-2 min-h-[60vh] transition-all duration-300">
+    <CountrySubtabLayout
+      activeTab="periods"
+      title={title}
+      subtitle={subtitle}
+    >
+      {/* Timeline Overview */}
+      <section className="py-8">
+        <Card className="border-2 shadow-card-hover transition-all duration-300">
           <CardHeader>
-            <CardTitle>Key Historical Periods - {country.name}</CardTitle>
+            <CardTitle className="font-heading text-heading-sm text-foreground">
+              Major Historical Periods
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground mb-4">
-              This is the historical periods page for {country.name}. You can add detailed information about:
-            </p>
-            <ul className="list-disc list-inside text-muted-foreground space-y-2">
-              <li>Ancient periods and early civilizations</li>
-              <li>Medieval and middle periods</li>
-              <li>Colonial and imperial periods</li>
-              <li>Independence and revolutionary periods</li>
-              <li>Modern and contemporary periods</li>
-              <li>Timeline of major political changes</li>
-            </ul>
+            <div className="space-y-6">
+              {periods.map((period, index) => (
+                <div key={index} className="group hover-scale transition-all duration-300">
+                  <div className="flex items-start space-x-4 p-4 rounded-lg border border-border hover:bg-muted/50">
+                    <div className="flex-shrink-0 p-2 bg-background rounded-full border">
+                      {period.icon}
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                        <h3 className="font-heading text-lg font-semibold text-foreground">
+                          {period.title}
+                        </h3>
+                        <span className="font-body text-sm text-vintage-gold font-medium">
+                          {period.timeframe}
+                        </span>
+                      </div>
+                      <p className="font-body text-body text-muted-foreground leading-relaxed">
+                        {period.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </CardContent>
         </Card>
-      </div>
-    </div>
+      </section>
+
+      {/* Detailed Period Information */}
+      <section className="py-8">
+        <Card className="border-2 shadow-card-hover transition-all duration-300">
+          <CardHeader>
+            <CardTitle className="font-heading text-heading-sm text-foreground">
+              Period Highlights & Key Events
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <h3 className="font-heading text-lg font-semibold text-foreground">Political Evolution</h3>
+                <ul className="space-y-2 text-muted-foreground font-body">
+                  <li className="flex items-start space-x-2">
+                    <span className="text-primary">•</span>
+                    <span>Formation and transformation of governmental systems</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-primary">•</span>
+                    <span>Constitutional developments and legal frameworks</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-primary">•</span>
+                    <span>Major political reforms and revolutionary changes</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <div className="space-y-4">
+                <h3 className="font-heading text-lg font-semibold text-foreground">Cultural & Social Changes</h3>
+                <ul className="space-y-2 text-muted-foreground font-body">
+                  <li className="flex items-start space-x-2">
+                    <span className="text-primary">•</span>
+                    <span>Religious movements and spiritual transformations</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-primary">•</span>
+                    <span>Artistic renaissance and cultural flowering</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <span className="text-primary">•</span>
+                    <span>Social movements and demographic shifts</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </section>
+    </CountrySubtabLayout>
   );
 };
 

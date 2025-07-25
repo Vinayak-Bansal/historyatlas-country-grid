@@ -1,10 +1,7 @@
-import { useParams, Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useParams } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { countries } from "@/data/countries";
-import Navigation from "@/components/Navigation";
+import CountrySubtabLayout from "@/components/CountrySubtabLayout";
 
 const CountryOverview = () => {
   const { countryName } = useParams();
@@ -13,111 +10,83 @@ const CountryOverview = () => {
     c => c.name.toLowerCase().replace(/\s+/g, '-') === countryName
   );
 
-  if (!country) {
-    return (
-      <div className="min-h-screen bg-background">
-        <Navigation />
-        <div className="container mx-auto px-4 py-8">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">Country Not Found</h1>
-            <Link to="/">
-              <Button>
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const title = `A Complete History of ${country?.name || 'Country'}`;
+  const subtitle = `Explore the rich historical journey of ${country?.name || 'this nation'}, from ancient civilizations to modern developments. Discover the key events, milestones, and transformations that shaped this country's unique identity.`;
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      
-      <div className="container mx-auto px-4 py-8">
-        {/* Back Button */}
-        <div className="mb-6">
-          <Link to="/">
-            <Button variant="outline" className="mb-4">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Countries
-            </Button>
-          </Link>
-        </div>
-
-        {/* Country Header */}
-        <div className="mb-8">
-          <Card className="bg-gradient-card border-2">
-            <CardHeader>
-              <div className="flex items-center space-x-4">
-                <img
-                  src={country.flag}
-                  alt={`${country.name} flag`}
-                  className="w-24 h-16 object-cover rounded-lg shadow-vintage"
-                />
-                <div>
-                  <CardTitle className="text-3xl font-bold bg-gradient-hero bg-clip-text text-transparent">
-                    {country.name}
-                  </CardTitle>
-                  <p className="text-muted-foreground">Country Code: {country.code}</p>
-                </div>
-              </div>
-            </CardHeader>
-          </Card>
-        </div>
-
-        {/* Navigation Tabs */}
-        <div className="mb-8">
-          <Tabs value="overview" className="w-full">
-            <TabsList className="grid w-full grid-cols-4">
-              <TabsTrigger value="overview" asChild>
-                <Link to={`/country/${countryName}/overview`}>Overview</Link>
-              </TabsTrigger>
-              <TabsTrigger value="periods" asChild>
-                <Link to={`/country/${countryName}/periods`}>Historical Periods</Link>
-              </TabsTrigger>
-              <TabsTrigger value="figures" asChild>
-                <Link to={`/country/${countryName}/figures`}>Notable Figures</Link>
-              </TabsTrigger>
-              <TabsTrigger value="heritage" asChild>
-                <Link to={`/country/${countryName}/heritage`}>Cultural Heritage</Link>
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
-        </div>
-
-        {/* Overview Content */}
-        <Card className="border-2 min-h-[60vh] transition-all duration-300">
+    <CountrySubtabLayout
+      activeTab="overview"
+      title={title}
+      subtitle={subtitle}
+    >
+      {/* Historical Overview Content */}
+      <section className="py-8">
+        <Card className="border-2 shadow-card-hover transition-all duration-300">
           <CardHeader>
-            <CardTitle>A Complete History of {country.name}</CardTitle>
+            <CardTitle className="font-heading text-heading-sm text-foreground">
+              Historical Timeline & Key Events
+            </CardTitle>
           </CardHeader>
-          <CardContent>
-            {country.historicalOverview && country.historicalOverview.length > 0 ? (
-              <ul className="list-disc list-inside text-muted-foreground space-y-2">
+          <CardContent className="space-y-6">
+            {country?.historicalOverview && country.historicalOverview.length > 0 ? (
+              <div className="space-y-4">
                 {country.historicalOverview.map((point, index) => (
-                  <li key={index}>{point}</li>
+                  <div key={index} className="flex items-start space-x-3 hover-scale">
+                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
+                    <p className="font-body text-body text-foreground leading-relaxed">{point}</p>
+                  </div>
                 ))}
-              </ul>
+              </div>
             ) : (
-              <div>
-                <p className="text-muted-foreground mb-4">
-                  This is the historical overview page for {country.name}. You can add detailed information about:
+              <div className="space-y-6">
+                <p className="font-body text-body text-muted-foreground leading-relaxed">
+                  This comprehensive overview covers the major historical developments and cultural evolution of {country?.name}. 
+                  Explore the timeline of significant events that have shaped this nation's identity.
                 </p>
-                <ul className="list-disc list-inside text-muted-foreground space-y-2">
-                  <li>Major historical events and milestones</li>
-                  <li>Significant developments in the country's history</li>
-                  <li>Ancient civilizations and early settlements</li>
-                  <li>Colonial period and independence movements</li>
-                  <li>Modern political and social developments</li>
-                </ul>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-3">
+                    <h3 className="font-heading text-lg font-semibold text-foreground">Ancient & Medieval Periods</h3>
+                    <ul className="space-y-2 text-muted-foreground font-body">
+                      <li className="flex items-start space-x-2">
+                        <span className="text-primary">•</span>
+                        <span>Early civilizations and settlements</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <span className="text-primary">•</span>
+                        <span>Formation of kingdoms and empires</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <span className="text-primary">•</span>
+                        <span>Cultural and religious developments</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <h3 className="font-heading text-lg font-semibold text-foreground">Modern Era</h3>
+                    <ul className="space-y-2 text-muted-foreground font-body">
+                      <li className="flex items-start space-x-2">
+                        <span className="text-primary">•</span>
+                        <span>Colonial period and independence movements</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <span className="text-primary">•</span>
+                        <span>Political and social transformations</span>
+                      </li>
+                      <li className="flex items-start space-x-2">
+                        <span className="text-primary">•</span>
+                        <span>Contemporary developments and achievements</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             )}
           </CardContent>
         </Card>
-      </div>
-    </div>
+      </section>
+    </CountrySubtabLayout>
   );
 };
 
